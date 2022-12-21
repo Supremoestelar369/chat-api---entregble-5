@@ -1,0 +1,126 @@
+@rootRoute = http://localhost:9000/api/v1/conversations
+@token = msoxmsincosnincnincncdmmod.eyJpZCI6ImJjMTFlMjAyLWRkMGQtNGJiMC04MDVjLWM3MDI3MmY0NjE4ZCIsImVtYWlsIjoibWF1cm9fY29uczQyMzRAZXhhbXBsZS5jb20iLCJyb2xlIjoibm9ybWFsIiwiaWF0IjoxNjcxNDY5MjM1fQ. d,ocmdomvpdd51564269w262w9d29w52955296csckve
+
+# @name getAllConversations
+### Show conversations of the logged in user - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations
+GET {{rootRoute}}
+Authorization: JWT {{token}}
+
+
+
+
+
+# @name createNewConversation
+### CreateNewConversation - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations
+POST {{rootRoute}}
+Content-Type: application/json
+Authorization: JWT {{token}}
+
+{
+    // Body request example
+    "title" : "test 10000000",
+    "initParticipants" : "['0731a85f-0d7e-41c4-a8f6-37b07080ebc0', 'ae55a7ef-0f33-4726-b3d8-da9458e55896']",
+    "imageUrl" : "example/url"
+  }
+
+
+
+# Store ID Conversation example
+@conversation_id = 7d77852f-2d80-4c38-993a-d4cd82b778a6
+
+
+
+# @name getConversationById
+### Get a Conversation by its id - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations/conversation_id
+GET {{rootRoute}}/{{conversation_id}}
+Authorization: JWT {{token}}
+
+# @name patchConversation
+### Modify a Conversation by its id - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations/conversation_id
+PATCH {{rootRoute}}/{{conversation_id}}
+Content-Type: application/json
+Authorization: JWT {{token}}
+
+{
+  "title" : "WOOOOOOO Test edited"
+}
+
+# @name deleteConversation
+### Deletes a conversation by its id - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations/conversation_id
+DELETE {{rootRoute}}/{{conversation_id}}
+Authorization: JWT {{token}}
+
+
+
+
+# @name createNewMessage
+### Allows you to create new messages - AUTHENTICATION REQUIRED -
+###00 http://localhost:9000/api/v1/conversations/conversation_id/messages
+POST {{rootRoute}}/{{conversation_id}}/messages
+Content-Type: application/json
+Authorization: JWT {{token}}
+
+{
+  "message" : "I can help you to solve it."
+}
+
+
+# @name getMessagesByConversationId
+### Displays all messages in a conversation - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations/conversation_id/messages
+GET {{rootRoute}}/{{conversation_id}}/messages
+Authorization: JWT {{token}}
+
+
+# Store message ID example
+@message_id = 9fe6b6a1-5212-49c7-a8ca-2ce200703dfd
+
+
+
+# @name getMessageById
+### Retrieves a message with its id - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations/conversation_id/messages/message_id
+GET {{rootRoute}}/{{conversation_id}}/messages/{{message_id}}
+Authorization: JWT {{token}}
+
+
+
+
+
+
+
+
+# @name deleteMessageById.
+### Deletes a message with its id - AUTHENTICATION REQUIRED -
+### http://localhost:9000/api/v1/conversations/conversation_id/messages/message_id
+DELETE {{rootRoute}}/{{conversation_id}}/messages/{{message_id}}
+Authorization: JWT {{token}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
